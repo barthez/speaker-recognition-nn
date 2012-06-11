@@ -31,4 +31,5 @@ fi
 for PKG in numpy scipy matplotlib spectrum networkx ffnet
 do
     echo "sudo $COMMAND install $PKG"
+    sudo $COMMAND install $PKG
 done
