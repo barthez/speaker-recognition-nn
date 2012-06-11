@@ -1,0 +1,13 @@
+##Sound files
+sound_compressed
+sound_uncompressed
+
+
+##Temp files
+*.pyc
+*.swp
+*.tmp
+*~
+
+##Output files
+*.net
