@@ -75,11 +75,11 @@ def find_words(data, fs, num, **args):
     if _plot:
         pylab.subplot(2,1,1)
         etime = np.array(range(len(signal_energy)), dtype=float)*frmh
-        pylab.plot(etime,signal_energy)
-        pylab.axhline(thresh)
+        pylab.plot(etime,signal_energy/1e6)
+        pylab.axhline(thresh/1e6)
         [ pylab.axvline(x*frmh, color="red") for x in stp ]
         [ pylab.axvline(x*frmh, color="green") for x in edp ]
-        pylab.xlabel("Czas [s]")
+        #pylab.xlabel("Czas [s]")
         pylab.title("Energia wypowiedzi w czasie")
         time = np.array(range(len(data)), dtype=float)/fs
         sc_data = data - np.mean(data)
@@ -114,7 +114,7 @@ class VoiceSample:
         return len(self.data)
 
     def lpc_coeff(self, p):
-        print "LPC coeff for: " + str(self)
+        #print "LPC coeff for: " + str(self)
         sc_data = self.data - np.mean(self.data)
         sc_data = sc_data/np.max(sc_data)
         (coeff, err) = lpc(sc_data, p);
@@ -193,6 +193,17 @@ class VoicePersonSamples(dict):
                     .format(", ".join(WORDS)))
         #print "Get inputs for word: {:s}".format(word)
         return array([ self[word][i].lpc_coeff(size) for i in rg])
+
+
+def __lpc_for_all():
+    names = get_names()
+    samples = [ VoicePersonSamples(n) for n in names ]
+
+    for w in WORDS:
+        pylab.figure()
+        for n, name in zip(range(len(name)), name):
+            inp = samples
+            
 
 def __main(args):
     print "Program testowy"
