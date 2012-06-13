@@ -6,7 +6,8 @@
 \usepackage{makeidx}
 \usepackage{amsfonts}
 \usepackage{graphicx}
-
+\usepackage{url}
+\usepackage{hyperref}
 
 \title{Rozpoznawanie mówcy z użyciem sieci neuronowych feed-forward}
 \author{
@@ -232,10 +233,24 @@ dla każdego sposobu uczenia. Porówanie parametrów znajduje się na wykresie
 Można jedynie zauważyć, że metoda wykorzystująca algorytm RProp daje rezultaty
 sporo poniżej wartości średniej.
 
-
 \section{Podsumowanie}
 
+W trakcie badań udało się zaimplementować podany algorytm wykrywania aktywności
+mówcy, wyliczanie współczynników LPC. Do zastosowań pozatestowych do uczenia
+sieci użyto algorytmu BFGS i wybrano porównanie na podstawie słowa ,,samochód''.
+
+W rozwoju aplikacji zostało kilka miejsc do uzupełnienia, takich jak
+znalezienie lepszych paramerów opisujących wypowiedź, takich które przechowują
+więcej chech osobowych, czy też sprawdzanie poprawności klasyfikacji z użyciem
+większej ilość długich słów.
+
 \section{Bibliografia}
+\begin{thebibliography}{123}
+    \bibitem{textind}Text-Independent Speaker Recognition Based on Neural Networks,
+        \url{http://www.neuralnetworks.it/neuralnetspeaker.asp}
+    \bibitem{VINING}Automatic Speaker Recognition Using Neural Networks, \emph{Braian
+        J. Love, Jennifer Vining, Xuening Sun}, 2004
+\end{thebibliography}
 
 \section{Dodatek A: Opis aplikacji}
 
