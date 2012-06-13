@@ -49,8 +49,9 @@ def split_into_words(filename, wn, thresh, too_short):
     print "Energy..."
 
     xx = scipy.diff(scipy.r_[ [0], (energy > thresh).astype(int) ] )
+    yy = scipy.diff(scipy.r_[ (energy > thresh).astype(int), [0] ] )
     start_sig = scipy.nonzero(xx > 0)[0]
-    end_sig = scipy.nonzero(xx < 0)[0]
+    end_sig = scipy.nonzero(yy < 0)[0]
 
     nst = start_sig
     ned = end_sig
@@ -97,6 +98,8 @@ def split_into_words(filename, wn, thresh, too_short):
 
     print "Join ranges"
 
+    print nst
+    print ned
     print ned - nst
 
     words = scipy.array([sig[fs*fh*a:fs*fh*b] for a, b in zip(nst, ned)])
