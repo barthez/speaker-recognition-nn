@@ -201,6 +201,42 @@ wpływ na to może mieć to, że żadne z imion się nie powtarza. Wykorzystanie
 nazwiska nie dało zadowlających rezultatów, może to być spowodowane tym, że w
 badzie występują 3 osoby o tych samych nazwiskach.
 
+\subsection{Sposób trenowania sieci}
 
+Użyta implementacja trenowanie sieci czterema algorytmami, dodatkowo jeden
+algorytm jest zaimplementowany w wersji wielo wątkowej (na wiele procesorów).
+Dostępne algorytmu uczenia:
+\begin{description}
+    \item[Alg. wstecznej propagacji błedu z momentem] prosta metoda wstecznej
+        propagacji błedu z zachowaniem momentu, co zapobiega na utkwieniu sieci
+        w ekstremach lokalnych lub siodłach.
+    \item[Alg. RProp] inna metoda wstecznej propagacji błedu.
+    \item[Gradient sprzężony] - adaptacja metody numerycznego wysnaczania
+        ekstremów dla sieci neuronowych
+    \item[Alg. BFGS] - ta metoda jest również zaimplementowana wielowątkowo.
+
+\end{description}
+Podobnie jak w przypadku róznych słów przeprowadzono testy regresji liniowej
+dla każdego sposobu uczenia. Porówanie parametrów znajduje się na wykresie
+\ref{fig:train}.
+
+
+\begin{figure}[h!]
+    \includegraphics[width=\textwidth]{training_network_reggresion}
+    \caption{Wykres parametrów regresji liniowej w zalezności od metody uczenia
+    sieci neuronowej}
+    \label{fig:train}
+\end{figure}
+
+Żadna z pokazanych metod uczenia nie wykazała znaczącej przewagi nad innymi.
+Można jedynie zauważyć, że metoda wykorzystująca algorytm RProp daje rezultaty
+sporo poniżej wartości średniej.
+
+
+\section{Podsumowanie}
+
+\section{Bibliografia}
+
+\section{Dodatek A: Opis aplikacji}
 
 \end{document}
