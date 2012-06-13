@@ -8,6 +8,9 @@ sound_uncompressed
 *.swp
 *.tmp
 *~
+*.log
+*.aux
 
 ##Output files
 *.net
+*.pdf
