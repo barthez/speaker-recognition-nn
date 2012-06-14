@@ -13,6 +13,5 @@ sound_uncompressed
 
 ##Output files
 *.net
-*.pdf
 *.out
 *.tar.gz
